@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres
+    container_name: shop
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_HOST=process.env.DB_HOST
+      - POSTGRES_USER=process.env.DB_USERNAME
+      - POSTGRES_PASSWORD=process.env.DB_PASSWORD
+      - POSTGRES_DATABASE=process.env.DB_DATABASE
+    command: postgres
+    restart: always
